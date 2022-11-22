@@ -1,0 +1,16 @@
+{
+  "folders": [
+	{
+		"name": "EcommerceGames-main",
+		"path": "."
+	},
+	{
+		"name": "img",
+		"path": "../proyecto coder/img"
+	}
+],
+  "settings": {
+    "liveServer.settings.port": 5501,
+    "liveServer.settings.multiRootWorkspaceName": "EcommerceGames-main"
+  }
+}

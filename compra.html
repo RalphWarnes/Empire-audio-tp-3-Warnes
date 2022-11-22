@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
+
+    <link rel="stylesheet" href="estilos.css" />
+    <link rel="stylesheet" href="spinner.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+    
+    
+<script type="text/javascript"
+src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+<script type="text/javascript">
+emailjs.init('ZpNJPbq1GExam6RZH')
+</script>
+    </script>
+</body>
+    <title>Empire sounds</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-dark min-vw-100">
+          <a class="logo-nav" href="home.html">
+            <img
+              src="img/EMPIRE AUDIO-logos_white.png"
+              alt="empire audio logo"
+              width="200px"
+              height="100%"
+          /></a>
+          <a
+            class="nav-link badge text-wrap"
+            style="width: 6rem"
+            aria-current="page"
+            href="home.html"
+            >HOME</a
+          >
+          <a
+            class="nav-link badge text-wrap"
+            style="width: 6rem"
+            aria-current="page"
+            href="productos.html"
+            >PRODUCTOS</a
+          >
+          <ul class="navbar-nav nav-links">
+            <li class="nav-item">
+              <a
+                class="nav-link text-white"
+                data-bs-toggle="modal"
+                data-bs-target="#modal"
+              >
+                <i class="bi bi-cart mx-5" id="carritoContenedor">0</i>
+              </a>
+              <a> </a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+    <button id="activarFuncion" class="btn btn-secondary boton mt-2">¡Click!</button>
+
+    <main>
+        <div class="container">
+            <div class="row mt-3">
+                <div class="col">
+                    <h2 class="compra-text d-flex justify-content-center mb-3">finalizar compra</h2>
+                    <form id="procesar-pago" method="POST">
+                        <div class="form-group row">
+                            
+                            <div class="mb-3 ms-5 col-12 col-md-10">
+                                <input type="text" class="form-control" id="cliente"
+                                    placeholder="Ingrese nombre " name="persona">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="email" ></label>
+                            <div class="mb-5 ms-5 col-12 col-md-10">
+                            <input type="text"  id="correo" class="form-control"  name="email.id" id="email.id"
+                            placeholder="Ingrese su correo">
+                            </div>
+                        </div>
+
+                        <div id="carrito" class="form-group table-responsive bg-light mb-5">
+                            <table class="table" id="lista-compra">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Imagen</th>
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col">Precio</th>
+                                        <th scope="col">Unidades</th>
+                                        <th scope="col">Sub Total</th>
+                                    </tr>
+
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                                <tr>
+                                    <th colspan="1" scope="col" class="text-left">TOTAL
+                                        <p id="totalProceso"></p>
+                                    </th>
+                                    <th scope="col"></th>
+                                </tr>
+
+                            </table>
+                        </div>
+
+                        <div class="row justify-content-center d-none" id="spinner">
+                            <div class="spinner">
+                                <div class="dot1"></div>
+                                <div class="dot2"></div>
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-between">
+                            <div class="col-md-4 mb-2">
+                                <a href="productos.html" class="btn btn-dark btn-block">Seguir comprando</a>
+                            </div>
+                            <div class="col-xs-12 col-md-4">
+                                 <input type="submit" class="btn btn-dark btn-block" id="button" value="Finalizar compra" >
+                            </div>
+                        </div>
+                    </form>
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </main>
+
+
+
+
+    <script src="app.js"></script>
+    
+    <script src="bootstrap.bundle.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript" src="js/barba.min.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+
+</html>
