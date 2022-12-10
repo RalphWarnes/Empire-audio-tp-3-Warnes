@@ -1,101 +1,3 @@
-const stockProductos = [
-  {
-    id: 1,
-    nombre: "Audient Sono",
-    cantidad: 1,
-    desc: "Interfaces de Audio",
-    precio: 89129.0,
-    img: "img/EMPIRE AUDIO-logos_black.png",
-  },
-  {
-    id: 2,
-    nombre: "Audient ID4 mk2",
-    cantidad: 1,
-    desc: "Interfaces de Audio",
-    precio: 80300.0,
-    img: "img/EMPIRE AUDIO-logos_black.png",
-  },
-  {
-    id: 3,
-    nombre: "Black Lion Revolution 2x2",
-    cantidad: 1,
-    desc: "Interfaces de Audio",
-    precio: 89400.0,
-    img: "img/EMPIRE AUDIO-logos_black.png",
-  },
-  {
-    id: 4,
-    nombre: "EVO By Audient EVO 8",
-    cantidad: 1,
-    desc: "Interfaces de Audio",
-    precio: 79200.0,
-    img: "img/EMPIRE AUDIO-logos_black.png",
-  },
-  {
-    id: 5,
-    nombre: "Aston Origin",
-    cantidad: 1,
-    desc: "microfonos",
-    precio: 1157200.0,
-    img: "img/EMPIRE AUDIO-logos_black.png",
-  },
-  {
-    id: 6,
-    nombre: "Warm Audio WA251",
-    cantidad: 1,
-    desc: "microfonos",
-    precio: 1157200.0,
-    img: "img/EMPIRE AUDIO-logos_black.png",
-  },
-  {
-    id: 7,
-    nombre: "Soyuz 023 Bomblet Deluxe",
-    cantidad: 1,
-    desc: "microfonos",
-    precio: 1157200.0,
-    img: "img/EMPIRE AUDIO-logos_black.png",
-  },
-  {
-    id: 8,
-    nombre: "Avantone Audio CK-1",
-    cantidad: 1,
-    desc: "microfonos",
-    precio: 1157200.0,
-    img: "img/EMPIRE AUDIO-logos_black.png",
-  },
-  {
-    id: 9,
-    nombre: "Sony MDR7506",
-    cantidad: 1,
-    desc: "auriculares",
-    precio: 60500.0,
-    img: "img/EMPIRE AUDIO-logos_black.png",
-  },
-  {
-    id: 10,
-    nombre: "Avantone Audio Mixphones MP1",
-    cantidad: 1,
-    desc: "auriculares",
-    precio: 88000.0,
-    img: "img/EMPIRE AUDIO-logos_black.png",
-  },
-  {
-    id: 11,
-    nombre: "512 AUDIO Academy",
-    cantidad: 1,
-    desc: "auriculares",
-    precio: 45100.0,
-    img: "img/EMPIRE AUDIO-logos_black.png",
-  },
-  {
-    id: 12,
-    nombre: "Ultrasone Signature Studio",
-    cantidad: 1,
-    desc: "auriculares",
-    precio: 156200.0,
-    img: "img/EMPIRE AUDIO-logos_black.png",
-  },
-];
 let carrito = [];
 
 const contenedor = document.querySelector("#contenedor");
@@ -143,10 +45,11 @@ if (procesarCompra) {
   });
 }
 
-stockProductos.forEach((prod) => {
-  const { id, nombre, precio, desc, img, cantidad } = prod;
-  if (contenedor) {
-    contenedor.innerHTML += `
+renderProductos = (productos) => {
+  productos.forEach((prod) => {
+    const { id, nombre, precio, desc, img, cantidad } = prod;
+    if (contenedor) {
+      contenedor.innerHTML += `
     <div class=" text-bg-light card text-center mt-3 mb-5 ms-5" style="width: 17rem;">
     <img class="border border-dark rounded card-img-top mt-2" src="${img}" alt="Card image cap">
     <div class="card-body">
@@ -158,8 +61,16 @@ stockProductos.forEach((prod) => {
     </div>
   </div>
     `;
-  }
-});
+    }
+  });
+};
+
+fetch("https://run.mocky.io/v3/6e185fc4-8645-48cb-b3c2-1229346323e0")
+  .then((response) => {
+    console.log("llamada fetch");
+    return response.json();
+  })
+  .then((data) => renderProductos(data.results));
 
 const agregarProducto = (id) => {
   const existe = carrito.some((prod) => prod.id === id);
