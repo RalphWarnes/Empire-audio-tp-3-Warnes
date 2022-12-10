@@ -1,3 +1,4 @@
+let stockProductos = [];
 let carrito = [];
 
 const contenedor = document.querySelector("#contenedor");
@@ -70,7 +71,10 @@ fetch("https://run.mocky.io/v3/6e185fc4-8645-48cb-b3c2-1229346323e0")
     console.log("llamada fetch");
     return response.json();
   })
-  .then((data) => renderProductos(data.results));
+  .then((data) => {
+    renderProductos(data.results);
+    stockProductos = data.results;
+  });
 
 const agregarProducto = (id) => {
   const existe = carrito.some((prod) => prod.id === id);
@@ -84,6 +88,8 @@ const agregarProducto = (id) => {
   } else {
     const item = stockProductos.find((prod) => prod.id === id);
     carrito.push(item);
+    console.log(stockProductos);
+    console.log(carrito);
   }
   mostrarCarrito();
 };
